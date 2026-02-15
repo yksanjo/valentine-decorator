@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Valentine's Heart Decorator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <h1>💕 Valentine's Heart Decorator 💘</h1>
+            <p class="subtitle">Create the perfect romantic heart for your loved one</p>
+        </header>
+
+        <div class="main-content">
+            <div class="heart-section">
+                <div class="heart-container" id="heartContainer">
+                    <svg id="heartSvg" viewBox="0 0 400 400">
+                        <!-- Heart shape -->
+                        <path id="heartShape" d="M200 380 C100 280 20 180 20 120 C20 60 70 20 130 20 C170 20 200 50 200 50 C200 50 230 20 270 20 C330 20 380 60 380 120 C380 180 300 280 200 380 Z" fill="#FF1493" />
+                        <path d="M200 350 C120 260 50 170 50 120 C50 70 90 40 140 40 C175 40 200 65 200 65 C200 65 225 40 260 40 C310 40 350 70 350 120 C350 170 280 260 200 350 Z" fill="#FF69B4" />
+                        
+                        <!-- Shiny highlight -->
+                        <ellipse cx="100" cy="100" rx="30" ry="50" fill="white" opacity="0.3" transform="rotate(-20 100 100)" />
+                    </svg>
+                    
+                    <div class="decoration-zone" id="decorationZone"></div>
+                </div>
+                
+                <div class="heart-controls">
+                    <div class="control-group">
+                        <label>
+                            <span>Heart Size</span>
+                            <input type="range" id="heartSize" min="0.8" max="1.5" step="0.1" value="1">
+                            <span class="value" id="heartSizeValue">100%</span>
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <label>
+                            <span>Heart Color</span>
+                            <select id="heartColor">
+                                <option value="pink">💗 Classic Pink</option>
+                                <option value="red">❤️ Red</option>
+                                <option value="purple">💜 Purple</option>
+                                <option value="maroon">🩸 Maroon</option>
+                                <option value="white">🤍 White</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="button-group">
+                        <button class="action-btn" id="pulseBtn">💓 Enable Pulse</button>
+                        <button class="action-btn" id="clearBtn">🗑️ Clear All</button>
+                        <button class="action-btn" id="exportBtn">📸 Export Heart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="decorations-panel">
+                <div class="decorations-section">
+                    <h3>💖 Stickers</h3>
+                    <div class="decorations-grid" id="stickerGrid">
+                        <div class="decoration-item" data-type="heart" draggable="true">
+                            <div class="decoration-preview">❤️</div>
+                            <span>Heart</span>
+                        </div>
+                        <div class="decoration-item" data-type="kiss" draggable="true">
+                            <div class="decoration-preview">💋</div>
+                            <span>Kiss</span>
+                        </div>
+                        <div class="decoration-item" data-type="rose" draggable="true">
+                            <div class="decoration-preview">🌹</div>
+                            <span>Rose</span>
+                        </div>
+                        <div class="decoration-item" data-type="cupid" draggable="true">
+                            <div class="decoration-preview">👼</div>
+                            <span>Cupid</span>
+                        </div>
+                        <div class="decoration-item" data-type="gift" draggable="true">
+                            <div class="decoration-preview">🎁</div>
+                            <span>Gift</span>
+                        </div>
+                        <div class="decoration-item" data-type="ring" draggable="true">
+                            <div class="decoration-preview">💍</div>
+                            <span>Ring</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="decorations-section">
+                    <h3>✨ Decorations</h3>
+                    <div class="decorations-grid" id="decoGrid">
+                        <div class="decoration-item" data-type="sparkle" draggable="true">
+                            <div class="decoration-preview">✨</div>
+                            <span>Sparkle</span>
+                        </div>
+                        <div class="decoration-item" data-type="star" draggable="true">
+                            <div class="decoration-preview">⭐</div>
+                            <span>Star</span>
+                        </div>
+                        <div class="decoration-item" data-type="flower" draggable="true">
+                            <div class="decoration-preview">🌸</div>
+                            <span>Flower</span>
+                        </div>
+                        <div class="decoration-item" data-type="butterfly" draggable="true">
+                            <div class="decoration-preview">🦋</div>
+                            <span>Butterfly</span>
+                        </div>
+                        <div class="decoration-item" data-type="ribbon" draggable="true">
+                            <div class="decoration-preview">🎀</div>
+                            <span>Ribbon</span>
+                        </div>
+                        <div class="decoration-item" data-type="bell" draggable="true">
+                            <div class="decoration-preview">🔔</div>
+                            <span>Bells</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="decorations-section">
+                    <h3>💬 Messages</h3>
+                    <div class="decorations-grid" id="messageGrid">
+                        <div class="decoration-item" data-type="love" draggable="true">
+                            <div class="decoration-preview">LOVE</div>
+                            <span>Love</span>
+                        </div>
+                        <div class="decoration-item" data-type="xoxo" draggable="true">
+                            <div class="decoration-preview">XOXO</div>
+                            <span>XOXO</span>
+                        </div>
+                        <div class="decoration-item" data-type="forever" draggable="true">
+                            <div class="decoration-preview">❤️</div>
+                            <span>Forever</span>
+                        </div>
+                        <div class="decoration-item" data-type="be-mine" draggable="true">
+                            <div class="decoration-preview">💕</div>
+                            <span>Be Mine</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lights-section">
+                    <h3>✨ Effects</h3>
+                    <div class="lights-controls">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="enablePulse">
+                            <span>Heartbeat Pulse</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="enableSparkle">
+                            <span>Sparkle Effect</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
